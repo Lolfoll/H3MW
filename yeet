@@ -1,0 +1,17 @@
+player.onItemInteracted(Item.IronHoe, function () {
+    mobs.spawn(mobs.projectile(ProjectileMob.Arrow), positions.create(2, 5, 0))
+    mobs.spawn(mobs.projectile(ProjectileMob.Arrow), positions.create(-2, 5, 0))
+    mobs.spawn(mobs.projectile(ProjectileMob.Arrow), positions.create(0, 5, 2))
+    mobs.spawn(mobs.projectile(ProjectileMob.Arrow), positions.create(0, 5, -2))
+    mobs.teleportToPlayer(
+    mobs.entitiesByType(mobs.projectile(ProjectileMob.Arrow)),
+    mobs.near(
+    mobs.entitiesByType(mobs.monster(MonsterMob.Zombie)),
+    player.position(),
+    3
+    )
+    )
+    mobs.kill(
+    mobs.entitiesByType(mobs.projectile(ProjectileMob.Arrow))
+    )
+})
